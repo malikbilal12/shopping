@@ -25,8 +25,15 @@ const getDefaultCart = () => {
     return cart;
 };
 
-
-export const ShopContext = createContext<ShopContextType>(null);
+const defaultContextValue: ShopContextType = {
+    all_products: [],
+    cartItem: {},
+    addToCart: () => {},
+    removeFromCart: () => {},
+    getTotalCartAmount: () => 0,
+    getTotalCartItem: () => 0,
+};
+export const ShopContext = createContext<ShopContextType>(defaultContextValue);
 
 const ShopContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     // const [all_products,setAllProducts]=useState([])
